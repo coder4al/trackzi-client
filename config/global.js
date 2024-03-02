@@ -1,3 +1,3 @@
-const API_URL = "https://trackzi-server.onrender.com";
+const API_URL = "http://localhost:4000";
 
 export default API_URL;
