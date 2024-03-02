@@ -1,3 +1,3 @@
-const API_URL = "https://5f84-120-56-110-28.ngrok-free.app";
+const API_URL = "https://trackzi-server.onrender.com";
 
 export default API_URL;
