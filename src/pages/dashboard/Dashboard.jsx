@@ -40,7 +40,7 @@ const Dashboard = () => {
             </div>
             <div className="createButton">
               <Link to="/taskmanager" className="button">
-                Create Task
+                Manage Task
               </Link>
             </div>
           </div>

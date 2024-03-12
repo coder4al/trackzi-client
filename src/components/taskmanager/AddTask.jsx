@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import './addtask.scss';
 import { addTask } from '../../redux/taskSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const AddTask = () => {
 	const dispatch = useDispatch();
-	const { auth } = useSelector((state) => ({ ...state }));
+	// Memoize the selector function
+    const selectAuth = (state) => state.auth;
+    const memoizedSelector = useMemo(() => selectAuth, []);
+
+    // Use the memoized selector function
+    const auth = useSelector(memoizedSelector);
 	const { currentUser } = auth;
 	const [state, setState] = useState({
 		task: '',

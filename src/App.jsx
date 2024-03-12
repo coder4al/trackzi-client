@@ -10,9 +10,16 @@ import TaskManager from './pages/taskmanagement/TaskManager';
 import Dashboard from './pages/dashboard/Dashboard';
 import RequireAuth from './utils/RequireAuth';
 import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
 
 function App() {
-	const { auth } = useSelector((state) => ({ ...state }));
+    // Memoize the selector function
+    const selectAuth = (state) => state.auth;
+    const memoizedSelector = useMemo(() => selectAuth, []);
+
+    // Use the memoized selector function
+    const auth = useSelector(memoizedSelector);
+
 	return (
 		<div>
 			<Router>

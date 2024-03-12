@@ -51,7 +51,7 @@ const Signup = () => {
 							type='email'
 							name='email'
 							value={state.email}
-							id=''
+							id='email'
 							placeholder='Enter Email'
 							onChange={handleChange}
 						/>
@@ -61,7 +61,7 @@ const Signup = () => {
 							type='password'
 							name='password'
 							value={state.password}
-							id=''
+							id='password'
 							placeholder='Enter Password'
 							onChange={handleChange}
 						/>

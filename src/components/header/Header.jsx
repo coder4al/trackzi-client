@@ -4,10 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutSuccess } from '../../redux/authSlice';
 import history from '../../history';
+import { useMemo } from 'react';
 
 const Header = () => {
 	const dispatch = useDispatch();
-	const { auth } = useSelector((state) => ({ ...state }));
+	// Memoize the selector function
+    const selectAuth = (state) => state.auth;
+    const memoizedSelector = useMemo(() => selectAuth, []);
+
+    // Use the memoized selector function
+    const auth = useSelector(memoizedSelector);
 
 	const handleClick = (e) => {
 		e.preventDefault();

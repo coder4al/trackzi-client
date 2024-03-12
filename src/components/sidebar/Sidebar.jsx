@@ -1,9 +1,15 @@
+import { useMemo } from 'react';
 import './Sidebar.scss';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
-	const { auth } = useSelector((state) => ({ ...state }));
+	// Memoize the selector function
+    const selectAuth = (state) => state.auth;
+    const memoizedSelector = useMemo(() => selectAuth, []);
+
+    // Use the memoized selector function
+    const auth = useSelector(memoizedSelector);
 	const { currentUser } = auth;
 
 	return (
